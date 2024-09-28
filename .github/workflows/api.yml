@@ -77,6 +77,7 @@ jobs:
         IMAGE_TAG: ${{ steps.commit.outputs.short }}
       working-directory: ./lanche-rapido
       run: |
+        aws eks update-kubeconfig --name module-eks-SkNJI --region us-east-1
         sed -i.bak "s|DOCKER_IMAGE|$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG|g" manifests/lanche-rapido-deployment.yaml && \
         kubectl apply -f https://raw.githubusercontent.com/BrunoAtaulo/techChallengeG24Fase3-LancheRapido/main/lanche-rapido/manifests/lanche-rapido-deployment.yaml --validate=false
         kubectl apply -f https://raw.githubusercontent.com/BrunoAtaulo/techChallengeG24Fase3-LancheRapido/main/lanche-rapido/manifests/lanche-rapido-svc.yaml --validate=false
