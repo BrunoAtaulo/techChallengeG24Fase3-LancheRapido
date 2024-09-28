@@ -21,9 +21,9 @@ Cesar P Moroni RM355921</br>
 
 - A arquitetura está sendo estruturada pelo repositório responsável pela criação do EKS que utiliza o terraform 
 
-- Autenticação está sendo utilizada pelo repositório que utiliza o Lambda + cognito
+- Autenticação está sendo estruturada pelo repositório que utiliza o Lambda + cognito
 
-- O banco de dados é o relacional (SQL server) e está estruturado em outro repositorio que utiliza o terraform e disponível no AWS RDS
+- O banco de dados é o relacional (SQL server) e está sendo estruturado em outro repositorio que utiliza o terraform e disponível no AWS RDS
 
 ## Desenho da arquitetura
 
