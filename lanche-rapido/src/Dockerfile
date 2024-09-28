@@ -8,19 +8,19 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
-
+# Corrigindo os caminhos dos arquivos .csproj
 COPY ["Api/Api.csproj", "Api/"]
 COPY ["Application/Application.csproj", "Application/"]
 COPY ["Domain/Domain.csproj", "Domain/"]
 COPY ["Infra/Infra.csproj", "Infra/"]
 
-
+# Restaurando pacotes NuGet
 RUN dotnet restore "Api/Api.csproj"
 
-
+# Copiando o restante do código-fonte
 COPY . .
 
-
+# Compilando o projeto
 WORKDIR "/src/Api"
 RUN dotnet build "Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
