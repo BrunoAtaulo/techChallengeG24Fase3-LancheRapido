@@ -72,14 +72,16 @@ jobs:
       run: aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
 
     - name: Deploy to EKS
-      env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        IMAGE_TAG: ${{ steps.commit.outputs.short }}
+    env:
+      ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+      IMAGE_TAG: ${{ steps.commit.outputs.short }}
       working-directory: ./lanche-rapido
       run: |
-        sed -i.bak "s|DOCKER_IMAGE|$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG|g" manifests/lanche-rapido-deployment.yaml && \
-        kubectl apply -f https://raw.githubusercontent.com/BrunoAtaulo/techChallengeG24Fase3-LancheRapido/main/lanche-rapido/manifests/lanche-rapido-deployment.yaml --validate=false
-        kubectl apply -f https://raw.githubusercontent.com/BrunoAtaulo/techChallengeG24Fase3-LancheRapido/main/lanche-rapido/manifests/lanche-rapido-svc.yaml --validate=false
-        kubectl apply -f https://raw.githubusercontent.com/BrunoAtaulo/techChallengeG24Fase3-LancheRapido/main/lanche-rapido/manifests/lanche-rapido-hpa.yaml --validate=false
-        kubectl get pods
-        kubectl get svc
+       aws eks update-kubeconfig --name module-eks-SkNJI --region us-east-1
+       sed -i.bak "s|DOCKER_IMAGE|$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG|g" manifests/lanche-rapido-deployment.yaml && \
+       kubectl apply -f manifests/lanche-rapido-deployment.yaml --validate=false && \
+       kubectl apply -f manifests/lanche-rapido-svc.yaml --validate=false && \
+       kubectl apply -f manifests/lanche-rapido-hpa.yaml --validate=false && \
+       kubectl get pods && \
+       kubectl get svc
+
