@@ -9,18 +9,20 @@ ENV ASPNETCORE_URLS=http://+:5000
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["src/Api/Api.csproj", "Api/"]
-COPY ["src/Application/Application.csproj", "Application/"]
-COPY ["src/Domain/Domain.csproj", "Domain/"]
-COPY ["src/Infra/Infra.csproj", "Infra/"]
-RUN dotnet restore "./src/Api/Api.csproj"
+COPY ["src/Api/Api.csproj", "src/Api/"]
+COPY ["src/Application/Application.csproj", "src/Application/"]
+COPY ["src/Domain/Domain.csproj", "src/Domain/"]
+COPY ["src/Infra/Infra.csproj", "src/Infra/"]
+
+RUN dotnet restore "src/Api/Api.csproj"
+
 COPY . .
 WORKDIR "/src/Api"
-RUN dotnet build "./src/Api/Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "src/Api/Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./src/Api/Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "src/Api/Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
