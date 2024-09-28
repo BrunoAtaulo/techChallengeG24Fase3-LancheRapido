@@ -12,3 +12,19 @@
 Franciele RM 355456</br>
 Bruno - RM355476</br>
 Cesar P Moroni RM355921</br>
+
+
+
+# Lanche Rápido
+
+## Detalhes da aplicação
+
+- A arquitetura está sendo estruturada pelo repositório responsável pela criação do EKS que utiliza o terraform 
+
+- Autenticação está sendo utilizada pelo repositório que utiliza o Lambda + cognito
+
+- O banco de dados é o relacional (SQL server) e está estruturado em outro repositorio que utiliza o terraform e disponível no AWS RDS
+
+## Desenho da arquitetura
+
+![desenho](assets/imagem1.png)
