@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 env:
-  ECR_REPOSITORY: techchallenge2
+  ECR_REPOSITORY: public.ecr.aws/c6y4l3f3/techchallenge2
   EKS_CLUSTER_NAME: module-eks-SkNJI
   AWS_REGION: us-east-1
 
@@ -43,19 +43,15 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
-          
-    - name: Login to Amazon ECR
-      id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v2
 
     - name: Build, tag, and push image to Amazon ECR
       env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}        
+        ECR_REGISTRY: public.ecr.aws/c6y4l3f3       
         IMAGE_TAG: "latest"
       working-directory: ./lanche-rapido/src
       run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        docker build -t $ECR_REGISTRY:$IMAGE_TAG -f Dockerfile .
+        docker push $ECR_REGISTRY:$IMAGE_TAG
     
     - name: Install kubectl
       run: |
@@ -63,23 +59,15 @@ jobs:
         chmod +x ./kubectl
         sudo mv ./kubectl /usr/local/bin/kubectl
 
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1  
-
     - name: Update kube config
       run: aws eks update-kubeconfig --name module-eks-SkNJI --region us-east-1
 
     - name: Deploy to EKS
       env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         IMAGE_TAG: ${{ steps.commit.outputs.short }}
       working-directory: ./lanche-rapido
       run: |
-        sed -i.bak "s|DOCKER_IMAGE|$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG|g" manifests/lanche-rapido-deployment.yaml
+        sed -i.bak "s|DOCKER_IMAGE|$ECR_REGISTRY:$IMAGE_TAG|g" manifests/lanche-rapido-deployment.yaml
         kubectl apply -f https://raw.githubusercontent.com/BrunoAtaulo/techChallengeG24Fase3-LancheRapido/main/lanche-rapido/manifests/lanche-rapido-deployment.yaml --validate=false
         kubectl apply -f https://raw.githubusercontent.com/BrunoAtaulo/techChallengeG24Fase3-LancheRapido/main/lanche-rapido/manifests/lanche-rapido-svc.yaml --validate=false
         kubectl apply -f https://raw.githubusercontent.com/BrunoAtaulo/techChallengeG24Fase3-LancheRapido/main/lanche-rapido/manifests/lanche-rapido-hpa.yaml --validate=false
