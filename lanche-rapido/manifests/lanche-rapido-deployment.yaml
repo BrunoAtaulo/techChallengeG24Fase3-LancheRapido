@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: lanche-rapido-container-app
-          image: 149536453851.dkr.ecr.us-east-1.amazonaws.com/techchallenge:latest
+          image: public.ecr.aws/c6y4l3f3/techchallenge2
           ports:
             - containerPort: 8080
           env:
