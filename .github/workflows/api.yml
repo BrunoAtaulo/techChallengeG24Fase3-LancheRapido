@@ -50,9 +50,9 @@ jobs:
         IMAGE_TAG: "latest"
       working-directory: ./lanche-rapido/src
       run: |
-        docker build -t $ECR_REGISTRY:$IMAGE_TAG -f Dockerfile .
-        docker push $ECR_REGISTRY:$IMAGE_TAG
-    
+        docker build -t public.ecr.aws/c6y4l3f3/techchallenge2:latest -f Dockerfile .
+        docker push public.ecr.aws/c6y4l3f3/techchallenge2:latest
+
     - name: Install kubectl
       run: |
         curl -LO "https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl"
