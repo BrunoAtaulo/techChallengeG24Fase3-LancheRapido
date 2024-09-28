@@ -20,12 +20,15 @@ jobs:
         dotnet-version: '8.0'
 
     - name: Restore dependencies
+      working-directory: ./lanche-rapido/src
       run: dotnet restore
 
     - name: Build
+      working-directory: ./lanche-rapido/src
       run: dotnet build --configuration Release --no-restore
 
     - name: Run tests
+      working-directory: ./lanche-rapido/src
       run: dotnet test --no-restore --verbosity normal
 
     - name: Set short git commit SHA
