@@ -6,19 +6,20 @@ ENV ASPNETCORE_URLS=http://+:5000
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
-WORKDIR /src/
+WORKDIR /src
 
-
+# Corrigindo os caminhos dos arquivos .csproj com letras maiúsculas
 COPY ["Api/Api.csproj", "Api/"]
 COPY ["Application/Application.csproj", "Application/"]
 COPY ["Domain/Domain.csproj", "Domain/"]
 COPY ["Infra/Infra.csproj", "Infra/"]
 
 
-RUN dotnet restore "Api/Api.csproj"
+RUN dotnet restore "./Api/Api.csproj"
 
 
 COPY . .
+
 
 WORKDIR "/src/Api"
 RUN dotnet build "Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
