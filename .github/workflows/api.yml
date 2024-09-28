@@ -78,6 +78,7 @@ jobs:
       working-directory: ./lanche-rapido
       run: |
         aws eks update-kubeconfig --name module-eks-SkNJI --region us-east-1
+        aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 149536453851.dkr.ecr.us-east-1.amazonaws.com
         sed -i.bak "s|DOCKER_IMAGE|$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG|g" manifests/lanche-rapido-deployment.yaml && \
         kubectl apply -f https://raw.githubusercontent.com/BrunoAtaulo/techChallengeG24Fase3-LancheRapido/main/lanche-rapido/manifests/lanche-rapido-deployment.yaml --validate=false
         kubectl apply -f https://raw.githubusercontent.com/BrunoAtaulo/techChallengeG24Fase3-LancheRapido/main/lanche-rapido/manifests/lanche-rapido-svc.yaml --validate=false
