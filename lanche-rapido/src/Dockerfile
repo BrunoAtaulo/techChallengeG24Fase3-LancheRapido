@@ -14,7 +14,7 @@ COPY ["src/Application/Application.csproj", "src/Application/"]
 COPY ["src/Domain/Domain.csproj", "src/Domain/"]
 COPY ["src/Infra/Infra.csproj", "src/Infra/"]
 
-RUN dotnet restore "./Api/Api.csproj"
+RUN dotnet restore "Api.csproj"
 COPY . .
 
 WORKDIR "/src/Api"
