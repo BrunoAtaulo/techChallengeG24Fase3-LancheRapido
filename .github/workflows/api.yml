@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 env:
-  ECR_REPOSITORY: public.ecr.aws/c6y4l3f3/techchallenge2
+  ECR_REPOSITORY: techchallenge2
   EKS_CLUSTER_NAME: module-eks-SkNJI
   AWS_REGION: us-east-1
 
