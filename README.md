@@ -27,4 +27,4 @@ Cesar P Moroni RM355921</br>
 
 ## Desenho da arquitetura
 
-![desenho](assets/imagem1.png)
+![desenho](assets/image1.png)
