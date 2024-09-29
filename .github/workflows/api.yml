@@ -43,8 +43,8 @@ jobs:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v3
       with:
-          aws-access-key-id: "AKIASFUIRGTN7VNIXW6W"
-          aws-secret-access-key: "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"
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
                  
@@ -55,13 +55,13 @@ jobs:
         
     - name: Update kube config
       run: |
-        aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
+        aws eks update-kubeconfig --name module-eks-SkNJI --region us-east-1
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v3
       with:
-          aws-access-key-id: "AKIASFUIRGTN7VNIXW6W"
-          aws-secret-access-key: "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"
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
    
