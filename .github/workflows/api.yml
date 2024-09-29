@@ -51,8 +51,8 @@ jobs:
       working-directory: ./lanche-rapido/src
       run: |
         aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/c6y4l3f3
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile .
-        docker push public.ecr.aws/techchallenge2/appfiap3:latest
+        docker build -t $ECR_REGISTRY/c6y4l3f3/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile .
+        docker push public.ecr.aws/c6y4l3f3/techchallenge2:latest
        
 
     - name: Install kubectl
