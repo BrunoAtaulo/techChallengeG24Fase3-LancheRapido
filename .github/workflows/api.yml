@@ -70,7 +70,7 @@ jobs:
         IMAGE_TAG: ${{ steps.commit.outputs.short }}
       working-directory: ./lanche-rapido
       run: |
-        sed -i.bak "s|public.ecr.aws/c6y4l3f3/techchallenge2:latest|g" manifests/lanche-rapido-deployment.yaml
+        sed -i.bak "s|DOCKER_IMAGE|public.ecr.aws/c6y4l3f3/techchallenge2:$IMAGE_TAG|g" manifests/lanche-rapido-deployment.yaml && \
         kubectl apply -f https://raw.githubusercontent.com/BrunoAtaulo/techChallengeG24Fase3-LancheRapido/main/lanche-rapido/manifests/lanche-rapido-deployment.yaml --validate=false
         kubectl apply -f https://raw.githubusercontent.com/BrunoAtaulo/techChallengeG24Fase3-LancheRapido/main/lanche-rapido/manifests/lanche-rapido-svc.yaml --validate=false
         kubectl apply -f https://raw.githubusercontent.com/BrunoAtaulo/techChallengeG24Fase3-LancheRapido/main/lanche-rapido/manifests/lanche-rapido-hpa.yaml --validate=false
