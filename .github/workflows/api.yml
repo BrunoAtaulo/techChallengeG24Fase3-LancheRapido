@@ -77,8 +77,9 @@ jobs:
       run: |
         aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/c6y4l3f3
         sed -i.bak "s|DOCKER_IMAGE|public.ecr.aws/c6y4l3f3/techchallenge2:$IMAGE_TAG|g" manifests/lanche-rapido-deployment.yaml && \
-        kubectl apply -f https://raw.githubusercontent.com/BrunoAtaulo/techChallengeG24Fase3-LancheRapido/main/lanche-rapido/manifests/lanche-rapido-deployment.yaml --validate=false
-        kubectl apply -f https://raw.githubusercontent.com/BrunoAtaulo/techChallengeG24Fase3-LancheRapido/main/lanche-rapido/manifests/lanche-rapido-svc.yaml --validate=false
-        kubectl apply -f https://raw.githubusercontent.com/BrunoAtaulo/techChallengeG24Fase3-LancheRapido/main/lanche-rapido/manifests/lanche-rapido-hpa.yaml --validate=false
+        kubectl apply -f manifests/lanche-rapido-deployment.yaml --validate=false
+        kubectl apply -f manifests/lanche-rapido-svc.yaml --validate=false
+        kubectl apply -f manifests/lanche-rapido-hpa.yaml --validate=false
         kubectl get pods
         kubectl get svc
+
