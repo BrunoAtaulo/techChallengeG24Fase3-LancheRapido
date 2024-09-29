@@ -43,20 +43,11 @@ jobs:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v3
       with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: "AKIASFUIRGTN7VNIXW6W"
+          aws-secret-access-key: "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"
           aws-region: us-east-1
 
-          
-    - name: Configurar AWS CLI try
-      run: |
-        aws eks --region $AWS_REGION update-kubeconfig --name $EKS_CLUSTER_NAME
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: 'us-east-1'
-
-        
+                 
     
     - name: Login to Amazon ECR
       id: login-ecr
@@ -69,10 +60,11 @@ jobs:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v3
       with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: "AKIASFUIRGTN7VNIXW6W"
+          aws-secret-access-key: "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"
           aws-region: us-east-1
 
+   
                      
     - name: Verificar Status do Deploy  parte 1
       run: |
