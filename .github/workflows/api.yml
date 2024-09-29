@@ -9,7 +9,6 @@ env:
   ECR_REPOSITORY: techchallenge2
   EKS_CLUSTER_NAME: module-eks-SkNJI
   AWS_REGION: us-east-1
-  
 
 jobs:
   build:
@@ -55,7 +54,6 @@ jobs:
         aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/c6y4l3f3
         docker build -t $ECR_REGISTRY/c6y4l3f3/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile .
         docker push public.ecr.aws/c6y4l3f3/techchallenge2:latest
-       
 
     - name: Install kubectl
       run: |
@@ -64,7 +62,13 @@ jobs:
         sudo mv ./kubectl /usr/local/bin/kubectl
 
     - name: Update kube config
-      run: aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
+      run: |
+        aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
+        kubectl config get-contexts
+        kubectl config use-context $EKS_CLUSTER_NAME
+
+    - name: Debug kubeconfig
+      run: cat ~/.kube/config
 
     - name: Deploy to EKS
       env:
