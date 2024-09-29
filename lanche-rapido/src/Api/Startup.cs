@@ -47,8 +47,8 @@ namespace Api
 
             services.AddEndpointsApiExplorer();
 
-
-            var connectionsString = Environment.GetEnvironmentVariable("DATABASE");
+            //for teste 
+            var connectionsString = "Data Source=terraform-20240929025505958500000002.clmcias6w746.us-east-1.rds.amazonaws.com;Initial Catalog=LancheRapidoBD;User ID=SA;Password=Pa55w0rd2021;TrustServerCertificate=true";
             //Console.WriteLine("bd");
             //Console.WriteLine(connectionsString);
             services.AddDbContext<FiapDbContext>(options =>
