@@ -33,37 +33,10 @@ jobs:
         push: true
 
 
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    
-    - name: Set up .NET Core SDK
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: '8.0'
-
-    - name: Restore dependencies
-      working-directory: ./lanche-rapido/src
-      run: dotnet restore
-
-    - name: Build
-      working-directory: ./lanche-rapido/src
-      run: dotnet build --configuration Release --no-restore
-
-    - name: Run tests
-      working-directory: ./lanche-rapido/src
-      run: dotnet test --no-restore --verbosity normal
-
-    - name: Set short git commit SHA
-      id: commit
-      uses: prompt/actions-commit-hash@v2
-    
-
-
-  
-    
-    
     
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
@@ -71,19 +44,6 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
-
-  
-
-
-    - name: Build, tag, and push image to Amazon ECR
-      env:
-        IMAGE_TAG: "latest"
-        
-      working-directory: ./lanche-rapido/src
-      run: |
-        aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/c6y4l3f3
-        docker build -t $ECR_REGISTRY/c6y4l3f3/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile .
-        docker push public.ecr.aws/c6y4l3f3/techchallenge2:latest
 
     - name: Install kubectl
       run: |
@@ -97,16 +57,9 @@ jobs:
         kubectl config get-contexts
         kubectl config use-context $EKS_CLUSTER_NAME
 
-    - name: Debug kubeconfig
-      run: cat ~/.kube/config
-
     - name: Deploy to EKS
-      env:
-        IMAGE_TAG: ${{ steps.commit.outputs.short }}
       working-directory: ./lanche-rapido
       run: |
-        aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/c6y4l3f3
-        sed -i.bak "s|DOCKER_IMAGE|public.ecr.aws/c6y4l3f3/techchallenge2:$IMAGE_TAG|g" manifests/lanche-rapido-deployment.yaml && \
         kubectl apply -f manifests/lanche-rapido-deployment.yaml --validate=false
         kubectl apply -f manifests/lanche-rapido-svc.yaml --validate=false
         kubectl apply -f manifests/lanche-rapido-hpa.yaml --validate=false
