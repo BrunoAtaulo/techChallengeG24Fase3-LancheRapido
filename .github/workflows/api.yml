@@ -59,7 +59,7 @@ jobs:
 
     - name: Deploy to EKS
       run: |
-        kubectl apply --validate=false  -f lanche-rapido/manifests/lanche-rapido-deployment.yaml  
+        techChallengeG24Fase3-TerraformKs8
         kubectl apply --validate=false  -f lanche-rapido/manifests/lanche-rapido-svc.yaml
         kubectl apply --validate=false  -f lanche-rapido/manifests/lanche-rapido-hpa.yaml
     
