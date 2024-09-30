@@ -47,8 +47,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-                 
-    
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
@@ -64,12 +62,10 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-   
-                     
     - name: Verificar Status do Deploy  parte 1
       run: |
         kubectl get pods
-        kubectl get svc
+        
     - name: Deploy to EKS
       run: |
         kubectl apply --validate=false  -f lanche-rapido/manifests/lanche-rapido-deployment.yaml  
