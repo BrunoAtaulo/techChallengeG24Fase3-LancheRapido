@@ -10,7 +10,7 @@ namespace Domain.Entities
     [SwaggerSchemaFilter(typeof(PagamentoInputSchemaFilter))]
     public class Pagamento
     {
-         [Key]
+        [Key]
         [JsonProperty("idPagamento")]
         public int IdPagamento { get; set; } // Identificador único da transação
 

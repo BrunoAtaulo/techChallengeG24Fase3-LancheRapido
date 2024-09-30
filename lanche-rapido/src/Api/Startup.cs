@@ -1,5 +1,5 @@
 using App.Api.Configurations;
-using Application;
+using App.Infra.CrossCutting.IoC;
 using Infra.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,8 +10,6 @@ using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
-using System;
-using Infra;
 namespace Api
 {
     public class Startup
@@ -37,26 +35,17 @@ namespace Api
                 options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
             });
 
+            services.AddCognito();
 
 
             // Add Swagger configuration
             services.AddSwaggerConfiguration();
 
-            services.AddDataBaseModule();
-            services.AddApplicationModule();
+            //inject 
+            NativeInjectorBootStrapper.RegisterServices(services);
 
             services.AddEndpointsApiExplorer();
 
-            //for teste 
-            var connectionsString = "Data Source=terraform-20240929025505958500000002.clmcias6w746.us-east-1.rds.amazonaws.com;Initial Catalog=LancheRapidoBD;User ID=SA;Password=Pa55w0rd2021;TrustServerCertificate=true";
-            //Console.WriteLine("bd");
-            //Console.WriteLine(connectionsString);
-            services.AddDbContext<FiapDbContext>(options =>
-            {
-                options.UseSqlServer(
-                    connectionsString,
-                    sqlServerOptions => sqlServerOptions.EnableRetryOnFailure());
-            });
 
 
         }
@@ -77,7 +66,8 @@ namespace Api
 
             app.UseRouting();
 
-            //app.UseAuthorization();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseSwagger(config =>
             {
@@ -88,7 +78,7 @@ namespace Api
                 config.SwaggerEndpoint("/api/v1/swagger.json", "API LancheRapido v1");
                 config.RoutePrefix = "swagger";
             });
-            
+
 
             app.UseEndpoints(endpoints =>
             {

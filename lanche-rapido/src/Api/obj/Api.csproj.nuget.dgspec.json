@@ -1,36 +1,40 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Api\\Api.csproj": {}
+    "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Api\\Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Api\\Api.csproj": {
+    "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Api\\Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Api\\Api.csproj",
+        "projectUniqueName": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Api\\Api.csproj",
         "projectName": "Api",
-        "projectPath": "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Api\\Api.csproj",
-        "packagesPath": "C:\\Users\\Franciele\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Api\\obj\\",
+        "projectPath": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Api\\Api.csproj",
+        "packagesPath": "C:\\Users\\crpn\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Api\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Franciele\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\crpn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "netcoreapp8.0",
             "projectReferences": {
-              "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Application\\Application.csproj"
-              },
-              "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Infra\\Infra.csproj": {
-                "projectPath": "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Infra\\Infra.csproj"
+              "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\App.Infra.CrossCutting.IoC\\App.Infra.CrossCutting.IoC.csproj": {
+                "projectPath": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\App.Infra.CrossCutting.IoC\\App.Infra.CrossCutting.IoC.csproj"
               }
             }
           }
@@ -50,6 +54,18 @@
         "net8.0": {
           "targetAlias": "netcoreapp8.0",
           "dependencies": {
+            "Amazon.AspNetCore.Identity.Cognito": {
+              "target": "Package",
+              "version": "[3.0.2, )"
+            },
+            "Amazon.Extensions.CognitoAuthentication": {
+              "target": "Package",
+              "version": "[2.5.5, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[8.0.5, )"
@@ -86,34 +102,122 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Application\\Application.csproj": {
+    "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\App.Infra.CrossCutting.IoC\\App.Infra.CrossCutting.IoC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Application\\Application.csproj",
-        "projectName": "Application",
-        "projectPath": "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\Franciele\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Application\\obj\\",
+        "projectUniqueName": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\App.Infra.CrossCutting.IoC\\App.Infra.CrossCutting.IoC.csproj",
+        "projectName": "App.Infra.CrossCutting.IoC",
+        "projectPath": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\App.Infra.CrossCutting.IoC\\App.Infra.CrossCutting.IoC.csproj",
+        "packagesPath": "C:\\Users\\crpn\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\App.Infra.CrossCutting.IoC\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Franciele\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\crpn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "netcoreapp8.0",
             "projectReferences": {
-              "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Domain\\Domain.csproj"
+              "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Application\\Application.csproj": {
+                "projectPath": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Application\\Application.csproj"
+              },
+              "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Domain\\Domain.csproj"
+              },
+              "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Infra\\Infra.csproj": {
+                "projectPath": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Infra\\Infra.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "netcoreapp8.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Application\\Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Application\\Application.csproj",
+        "projectName": "Application",
+        "projectPath": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\crpn\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\crpn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "netcoreapp8.0",
+            "projectReferences": {
+              "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Domain\\Domain.csproj"
               }
             }
           }
@@ -154,26 +258,33 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Domain\\Domain.csproj": {
+    "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Franciele\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Domain\\obj\\",
+        "projectPath": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\crpn\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Franciele\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\crpn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -230,37 +341,44 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Infra\\Infra.csproj": {
+    "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Infra\\Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Infra\\Infra.csproj",
+        "projectUniqueName": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Infra\\Infra.csproj",
         "projectName": "Infra",
-        "projectPath": "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Infra\\Infra.csproj",
-        "packagesPath": "C:\\Users\\Franciele\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Infra\\obj\\",
+        "projectPath": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Infra\\Infra.csproj",
+        "packagesPath": "C:\\Users\\crpn\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Infra\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Franciele\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\crpn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "netcoreapp8.0",
             "projectReferences": {
-              "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Application\\Application.csproj"
+              "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Application\\Application.csproj": {
+                "projectPath": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Application\\Application.csproj"
               },
-              "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Franciele\\Desktop\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Domain\\Domain.csproj"
+              "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Domain\\Domain.csproj"
               }
             }
           }
@@ -293,10 +411,6 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[8.0.5, )"
-            },
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[9.0.1, )"
             }
           },
           "imports": [
@@ -315,7 +429,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

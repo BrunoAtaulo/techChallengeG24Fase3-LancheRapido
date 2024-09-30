@@ -2,9 +2,7 @@ using Application.Interfaces;
 using Application.ViewModel.Request;
 using Application.ViewModel.Response;
 using Domain.Base;
-using Domain.Entities;
 using Domain.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,7 +24,7 @@ namespace Application.Services
             _pedidoRepository = pedidoRepository;
         }
 
-    
+
         public async Task<IList<PedidoResponse>> GetPedidosAsync(PedidoRequest filtro)
         {
             var lstPedidos = await _pedidoRepository.GetPedidosAsync(filtro.IdPedido, filtro.PedidoStatus, filtro.PedidoPagamento);

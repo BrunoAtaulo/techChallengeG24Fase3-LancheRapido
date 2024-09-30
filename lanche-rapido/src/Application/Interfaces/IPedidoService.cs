@@ -1,6 +1,5 @@
 using Application.ViewModel.Request;
 using Application.ViewModel.Response;
-using Domain.Base;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

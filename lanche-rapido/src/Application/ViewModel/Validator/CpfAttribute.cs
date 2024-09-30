@@ -2,7 +2,7 @@
 
 namespace Domain.Entities.Validator
 {
-    public class CpfAttribute : ValidationAttribute
+    public class CpfAttribute_apagar : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {

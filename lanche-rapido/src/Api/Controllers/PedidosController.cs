@@ -2,6 +2,7 @@
 using Application.ViewModel.Request;
 using Application.ViewModel.Response;
 using Domain.Base;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Collections.Generic;
@@ -11,6 +12,8 @@ using System.Threading.Tasks;
 
 namespace Api.Controllers
 {
+
+    [Authorize]
     [ApiController]
     [Route("pedidos/")]
     public class PedidosController : ControllerBase

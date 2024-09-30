@@ -7,7 +7,7 @@ namespace Domain.Interfaces
 {
     public interface IPedidoRepository
     {
-        
+
         Task<IList<Pedido>> GetPedidosAsync(int? idPedido, EnumPedidoStatus? pedidoStatus, EnumPedidoPagamento? pedidoPagamento);
 
         Task<bool> UpdatePedidoAsync(Pedido pedido);
