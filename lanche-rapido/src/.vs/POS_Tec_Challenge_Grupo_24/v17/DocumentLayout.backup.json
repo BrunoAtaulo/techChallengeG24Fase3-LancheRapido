@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B8AC8EAD-38B4-454B-82A4-FA8CBD065FAB}|Api\\Api.csproj|c:\\dev\\repo_pos\\fase3\\techchallengeg24fase3-lancherapido\\lanche-rapido\\src\\api\\configurations\\cognitoconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B8AC8EAD-38B4-454B-82A4-FA8CBD065FAB}|Api\\Api.csproj|solutionrelative:api\\configurations\\cognitoconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 203,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 33,
           "Children": [
             {
               "$type": "Bookmark",
@@ -142,6 +147,19 @@
             {
               "$type": "Bookmark",
               "Name": "ST:254354193:0:{71f361cc-493f-47c0-923f-f2570b6f8618}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CognitoConfig.cs",
+              "DocumentMoniker": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Api\\Configurations\\CognitoConfig.cs",
+              "RelativeDocumentMoniker": "Api\\Configurations\\CognitoConfig.cs",
+              "ToolTip": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Api\\Configurations\\CognitoConfig.cs",
+              "RelativeToolTip": "Api\\Configurations\\CognitoConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T19:12:01.832Z",
+              "EditorCaption": ""
             }
           ]
         },

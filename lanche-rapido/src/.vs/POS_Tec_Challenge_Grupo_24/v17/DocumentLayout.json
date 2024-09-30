@@ -3,6 +3,9 @@
   "WorkspaceRootPath": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B8AC8EAD-38B4-454B-82A4-FA8CBD065FAB}|Api\\Api.csproj|c:\\dev\\repo_pos\\fase3\\techchallengeg24fase3-lancherapido\\lanche-rapido\\src\\api\\configurations\\cognitoconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B8AC8EAD-38B4-454B-82A4-FA8CBD065FAB}|Api\\Api.csproj|solutionrelative:api\\configurations\\cognitoconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -151,12 +154,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\.gitignore",
+              "RelativeDocumentMoniker": "..\\..\\.gitignore",
+              "ToolTip": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\.gitignore",
+              "RelativeToolTip": "..\\..\\.gitignore",
+              "ViewState": "AgIAAEYBAAAAAAAAAAAswGEBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-09-30T19:12:54.879Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "CognitoConfig.cs",
               "DocumentMoniker": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Api\\Configurations\\CognitoConfig.cs",
               "RelativeDocumentMoniker": "Api\\Configurations\\CognitoConfig.cs",
               "ToolTip": "C:\\Dev\\repo_pos\\Fase3\\techChallengeG24Fase3-LancheRapido\\lanche-rapido\\src\\Api\\Configurations\\CognitoConfig.cs",
               "RelativeToolTip": "Api\\Configurations\\CognitoConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-30T19:12:01.832Z",
               "EditorCaption": ""

@@ -351,3 +351,61 @@ Generated_Code/
 *.config
 .lock.json
 project.lock.json
+
+
+# Ignorar arquivos e diretórios na estrutura do projeto em projeto/lanche-rapido/src
+
+# User-specific files
+/lanche-rapido/src/*.rsuser
+/lanche-rapido/src/*.suo
+/lanche-rapido/src/*.user
+/lanche-rapido/src/*.userosscache
+/lanche-rapido/src/*.sln.docstates
+
+# Mono auto generated files
+/lanche-rapido/src/mono_crash.*
+
+# Build results
+/lanche-rapido/src/[Dd]ebug/
+/lanche-rapido/src/[Dd]ebugPublic/
+/lanche-rapido/src/[Rr]elease/
+/lanche-rapido/src/x64/
+/lanche-rapido/src/x86/
+/lanche-rapido/src/[Aa][Rr][Mm]/
+/lanche-rapido/src/[Aa][Rr][Mm]64/
+/lanche-rapido/src/bld/
+/lanche-rapido/src/[Bb]uild/
+/lanche-rapido/src/[Bb]in/
+/lanche-rapido/src/[Oo]bj/
+
+# Windows image file caches
+/lanche-rapido/src/Thumbs.db
+/lanche-rapido/src/ehthumbs.db
+
+# Visual Studio cache files
+/lanche-rapido/src/.vs/
+
+/lanche-rapido/src/ScaffoldingReadMe.txt
+
+# dotCover: Coverage analysis
+/lanche-rapido/src/*.dotCover
+
+# NCrunch
+/lanche-rapido/src/*_NCrunch_*
+/lanche-rapido/src/.*crunch*.local.xml
+
+# Rider IDE
+/lanche-rapido/src/.idea/
+/lanche-rapido/src/.idea_modules/
+
+# Auto-generated Visual Studio files
+/lanche-rapido/src/Generated_Code/
+
+# .NET Core SDK/ASP.NET files
+/lanche-rapido/src/.vs/
+/lanche-rapido/src/.nuget/
+/lanche-rapido/src/*.nupkg
+/lanche-rapido/src/*.snupkg
+/lanche-rapido/src/*.config
+/lanche-rapido/src/.lock.json
+/lanche-rapido/src/project.lock.json
