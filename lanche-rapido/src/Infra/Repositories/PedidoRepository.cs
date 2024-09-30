@@ -20,15 +20,15 @@ namespace Infra.Repositories
         {
             var query = _context.Pedidos.AsQueryable();
 
-            if(idPedido.HasValue)
+            if (idPedido.HasValue)
                 query = query.Where(p => p.Id == idPedido);
 
             if (pedidoStatus.HasValue)
                 query = query.Where(p => p.PedidoStatusId == (int)pedidoStatus.Value);
-            
+
             if (pedidoPagamento.HasValue)
                 query = query.Where(p => p.PedidoPagamentoId == (int)pedidoPagamento.Value);
-            
+
             return await query.ToListAsync();
         }
 
@@ -36,7 +36,7 @@ namespace Infra.Repositories
         {
             var query = _context.Pedidos.AsQueryable();
 
-                query = query.Where(p => p.Id == idPedido);
+            query = query.Where(p => p.Id == idPedido);
 
             return await query.FirstOrDefaultAsync();
         }

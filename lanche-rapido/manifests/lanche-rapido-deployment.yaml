@@ -5,56 +5,24 @@ metadata:
   labels:
     app: lanche-rapido
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lanche-rapido
   template:
     metadata:
-      name: lanche-rapido
       labels:
         app: lanche-rapido
     spec:
       containers:
-        - name: lanche-rapido-container-app
-          image: public.ecr.aws/c6y4l3f3/techchallenge2
-          ports:
-            - containerPort: 8080
-          env:
-            - name: DATASOURCE_URL
-              value: 'terraform-20240928005857473100000001.clmcias6w746.us-east-1.rds.amazonaws.com'
-            - name: DATASOURCE_USERNAME
-              value: 'SA'
-            - name: DATASOURCE_PASSWORD
-              value: 'Pa55w0rd2021'
-          resources:
-            limits:
-              memory: "1024Mi"
-              cpu: "160m"
-            requests:
-              memory: "512Mi"
-              cpu: "150m"
-          readinessProbe:
-            httpGet:
-              path: /actuator/health
-              port: http-port
-            initialDelaySeconds: 120
-            periodSeconds: 30
-            timeoutSeconds: 5
-            failureThreshold: 3
-          livenessProbe:
-            httpGet:
-              path: /actuator/health
-              port: http-port
-            initialDelaySeconds: 120
-            periodSeconds: 30
-            timeoutSeconds: 5
-            failureThreshold: 3
-          startupProbe:
-            httpGet:
-              path: /actuator/health
-              port: http-port
-            initialDelaySeconds: 120
-            periodSeconds: 30
-            timeoutSeconds: 5
-            failureThreshold: 3
-  replicas: 2
-  selector:
-    matchLabels:
-      app: lanche-rapido
+      - name: app
+        image: cesarmoroni1/teste:latest
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 40m
+            memory: 100Mi
+          limits:
+            cpu: 60m
+            memory: 150Mi  

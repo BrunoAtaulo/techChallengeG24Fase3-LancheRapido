@@ -1,6 +1,6 @@
-﻿using System.Threading.Tasks;
-using Domain.Entities;
+﻿using Domain.Entities;
 using Domain.Entities.Output;
+using System.Threading.Tasks;
 
 namespace Application.Interfaces
 {

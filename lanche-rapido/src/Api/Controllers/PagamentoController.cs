@@ -1,6 +1,7 @@
 ﻿using Application.Interfaces;
 using Domain.Entities;
 using Domain.Entities.Output;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("pagamentos/")]
 
@@ -31,7 +33,7 @@ namespace API.Controllers
             _pagamentoService = pagamentoService;
         }
 
-       
+
         [HttpGet("{idPedido}/status")]
         [SwaggerOperation(
             Summary = "Endpoint para obter o status do pagamento de um pedido",
@@ -46,7 +48,7 @@ namespace API.Controllers
         {
             try
             {
-                
+
                 PagamentoStatusOutput? statusPagamento = await _pagamentoService.GetStatusPagamento(idPedido);
 
                 if (statusPagamento is null)
@@ -56,12 +58,12 @@ namespace API.Controllers
             }
             catch (Exception)
             {
-               
+
                 return StatusCode(500, "Ocorreu um erro interno. Por favor, tente novamente mais tarde.");
             }
         }
 
-        
+
         [HttpPost]
         [SwaggerOperation(
             Summary = "Endpoint para processar o pagamento de um pedido",
@@ -80,7 +82,7 @@ namespace API.Controllers
         {
             try
             {
-             
+
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
@@ -90,17 +92,17 @@ namespace API.Controllers
             }
             catch (Domain.Base.PreconditionFailedException ex)
             {
-                
+
                 return StatusCode(412, ex.Message);
             }
             catch (Exception)
             {
-               
+
                 return StatusCode(500, "Ocorreu um erro interno. Por favor, tente novamente mais tarde.");
             }
         }
 
-       
+
         [HttpPost("webhook")]
         [SwaggerOperation(
             Summary = "Endpoint para receber notificações de pagamento",
@@ -112,12 +114,12 @@ namespace API.Controllers
             Tags = new[] { "Pagamento" }
         )]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> ReceberNotificacaoPagamento([FromQuery]long id, [FromQuery] string topic)
+        public async Task<IActionResult> ReceberNotificacaoPagamento([FromQuery] long id, [FromQuery] string topic)
         {
             try
             {
                 if (topic.Equals("merchant_order"))
-                {                    
+                {
                     await _pagamentoService.ProcessarNotificacaoPagamento(id);
                 }
 
@@ -125,12 +127,12 @@ namespace API.Controllers
             }
             catch (Exception ex)
             {
-               
+
                 return StatusCode(500, $"Erro ao processar webhook: {ex.Message}");
             }
         }
 
-       
+
         [HttpGet("{idPedido}/qrcode")]
         [SwaggerOperation(
             Summary = "Endpoint para obter QRCode para pagamento de um pedido",
@@ -144,14 +146,14 @@ namespace API.Controllers
         public async Task<IActionResult> ObterQRCodePagamento(int idPedido)
         {
             try
-            {                
+            {
                 var qrCode = await _pagamentoService.ObterQRCodePagamento(idPedido);
                 return Ok(qrCode);
 
             }
             catch (Exception ex)
             {
-                
+
                 return StatusCode(500, $"Erro ao criar qrCode: {ex.Message}");
             }
         }

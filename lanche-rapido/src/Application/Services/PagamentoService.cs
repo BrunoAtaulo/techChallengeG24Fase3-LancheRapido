@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿using Application.Interfaces;
 using Domain.Base;
 using Domain.Entities;
 using Domain.Entities.Output;
 using Domain.Interfaces;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 
-namespace Application.Interfaces
+namespace Application.Services
 {
     public class PagamentoService : IPagamentoService
     {
@@ -77,11 +78,11 @@ namespace Application.Interfaces
             if (pagamento == null)
                 return null;
 
-           double valorPagamento = (double)Math.Round(pagamento.ValorPagamento, 2);
+            double valorPagamento = (double)Math.Round(pagamento.ValorPagamento, 2);
 
             var payLoad = new PayloadQRCodeOutput()
             {
-                description = string.Format("Pedido_{0}", pagamento.IdPedido), 
+                description = string.Format("Pedido_{0}", pagamento.IdPedido),
                 external_reference = pagamento.IdPedido.ToString(),
                 items = new List<ItemPagamento>()
                 {
@@ -90,8 +91,8 @@ namespace Application.Interfaces
                         title = string.Format("Pagamento_{0}", pagamento.IdPagamento),
                         description = "external_reference >>> IdPedido",
                         unit_price = valorPagamento,
-                        quantity = 1,                        
-                        unit_measure = "unit",                        
+                        quantity = 1,
+                        unit_measure = "unit",
                         total_amount = valorPagamento,
                     }
                 },
@@ -104,27 +105,27 @@ namespace Application.Interfaces
                 total_amount = valorPagamento
             };
 
-              // Verificar campos nulos
-                if (string.IsNullOrEmpty(payLoad.description) ||
-                    string.IsNullOrEmpty(payLoad.external_reference) ||
-                    string.IsNullOrEmpty(payLoad.title) ||
-                    payLoad.total_amount <= 0 ||
-                    payLoad.items == null || payLoad.items.Count == 0 ||
-                    string.IsNullOrEmpty(payLoad.items[0].title) ||
-                    string.IsNullOrEmpty(payLoad.items[0].description) ||
-                    payLoad.items[0].unit_price <= 0 ||
-                    payLoad.items[0].quantity <= 0 ||
-                    string.IsNullOrEmpty(payLoad.items[0].unit_measure) ||
-                    payLoad.items[0].total_amount <= 0)
-                {
-                    throw new ArgumentException("Campos obrigatórios estão faltando ou inválidos no payload.");
-                }
+            // Verificar campos nulos
+            if (string.IsNullOrEmpty(payLoad.description) ||
+                string.IsNullOrEmpty(payLoad.external_reference) ||
+                string.IsNullOrEmpty(payLoad.title) ||
+                payLoad.total_amount <= 0 ||
+                payLoad.items == null || payLoad.items.Count == 0 ||
+                string.IsNullOrEmpty(payLoad.items[0].title) ||
+                string.IsNullOrEmpty(payLoad.items[0].description) ||
+                payLoad.items[0].unit_price <= 0 ||
+                payLoad.items[0].quantity <= 0 ||
+                string.IsNullOrEmpty(payLoad.items[0].unit_measure) ||
+                payLoad.items[0].total_amount <= 0)
+            {
+                throw new ArgumentException("Campos obrigatórios estão faltando ou inválidos no payload.");
+            }
 
             var qrCode = await CriarOrdemPagamentoMercadoPago(payLoad);
             return qrCode;
         }
 
-       private async Task<QRCodeOutput> CriarOrdemPagamentoMercadoPago(PayloadQRCodeOutput payLoad)
+        private async Task<QRCodeOutput> CriarOrdemPagamentoMercadoPago(PayloadQRCodeOutput payLoad)
         {
             var client = new HttpClient();
             var urlQrCode = _baseUrlMercadoPago + _pathCriarOrdemMercadoPago;
@@ -158,7 +159,8 @@ namespace Application.Interfaces
                 foreach (var pgto in ordemPagamento.payments)
                 {
                     statusPagamento = pgto.status;
-                    if (statusPagamento.Equals("approved")) {
+                    if (statusPagamento.Equals("approved"))
+                    {
                         break;
                     }
                 }
@@ -179,23 +181,23 @@ namespace Application.Interfaces
                 {
                     pagamento.StatusPagamento = statusPagamento;
                     await _pagamentoRepository.PutPagamento(pagamento);
-                }                
+                }
 
                 if (ordemPagamento.order_status.Equals("paid"))
                 {
                     pedido.StatusPedido = "Em Preparação";
                     _pedidoRepository.UpdatePedido(pedido);
-                }                
+                }
             }
         }
 
         private async Task<OrdemPagamento> ConsultarOrdemPagamentoMercadoPago(long merchant_order)
-        {                        
+        {
             var client = new HttpClient();
             var urlConsultarOrdem = _baseUrlMercadoPago + string.Format(_pathConsultarOrdemMercadoPago, merchant_order);
             var request = new HttpRequestMessage(HttpMethod.Get, urlConsultarOrdem);
             request.Headers.Add("Authorization", _authorizationMercadoPago);
-            var response = await client.SendAsync(request);            
+            var response = await client.SendAsync(request);
             var responseJson = await response.Content.ReadAsStringAsync();
             var ordemPagamento = JsonConvert.DeserializeObject<OrdemPagamento>(responseJson);
 

@@ -8,6 +8,6 @@ namespace Application.ViewModel.Request
         public EnumPedidoStatus? PedidoStatus { get; set; }
         public EnumPedidoPagamento? PedidoPagamento { get; set; }
 
-        
+
     }
 }

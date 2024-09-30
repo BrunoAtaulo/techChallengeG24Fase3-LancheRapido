@@ -2,6 +2,7 @@ using Application.Interfaces;
 using Application.ViewModel.Request;
 using Application.ViewModel.Response;
 using Domain.Base;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -55,7 +56,7 @@ namespace Api.Controllers
         }
         #endregion
 
-
+        [Authorize]
         #region POST/produtos
         [SwaggerResponse(201, "A solicitação foi atendida e resultou na criação de um ou mais novos recursos.", typeof(ProdutoByIdResponse))]
         [SwaggerResponse(400, "A solicitação não pode ser entendida pelo servidor devido a sintaxe malformada!")]
